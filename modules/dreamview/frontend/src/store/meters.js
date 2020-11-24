@@ -46,6 +46,8 @@ export default class Meters {
 
     @observable steeringPercentage = 0;
 
+    @observable batteryPercentage = 0;
+
     @observable drivingMode = 'UNKNOWN';
 
     @observable isAutoMode = false;
@@ -64,6 +66,10 @@ export default class Meters {
         if (world.autoDrivingCar.speed !== undefined) {
           // Convert the unit from m/s to mph.
           this.speed = world.autoDrivingCar.speed;
+        }
+
+        if (world.autoDrivingCar.batteryPercentage !== undefined) {
+            this.batteryPercentage = world.autoDrivingCar.batteryPercentage;
         }
 
         if (world.autoDrivingCar.steeringPercentage !== undefined
